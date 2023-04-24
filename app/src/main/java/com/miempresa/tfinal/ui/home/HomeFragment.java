@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private HomeViewModel hvm;
 
-    public static ArrayList<String> tareas;
+    public static ArrayList<String> tareas = new ArrayList<>();
 
 
 

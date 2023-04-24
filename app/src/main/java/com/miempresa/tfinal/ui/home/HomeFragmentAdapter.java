@@ -28,10 +28,15 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
 
     public HomeFragmentAdapter(Context context, List<String> tareas, LayoutInflater inf) {
-        for(int i=0 ; i<tareas.size();i++){
-            this.tareasA.add(new Tarea(tareas.get(i)));
+        if(tareas == null){
+            this.tareasA.add(new Tarea("Tu Lista de Tareas"));
         }
+        else{
 
+            for(int i=0 ; i<tareas.size();i++){
+                this.tareasA.add(new Tarea(tareas.get(i)));
+            }
+        }
         this.context = context;
 
         this.inf = inf;
@@ -55,7 +60,10 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     @Override
     public int getItemCount() {
+        if(tareasA!=null){
         return tareasA.size();
+    }
+        return 0;
     }
 
 
@@ -67,7 +75,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            titulo= itemView.findViewById(R.id.tvTitulo);
+
             descripcion= itemView.findViewById(R.id.tvDescripcion);
 
 

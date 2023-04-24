@@ -1,5 +1,7 @@
 package com.miempresa.tfinal.ui.gallery;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -22,6 +24,8 @@ public class GalleryViewModel extends ViewModel {
     }
 
     public void agregarTarea(String tarea){
+
+        Log.d("tarea", tarea);
         HomeViewModel.setTarea(tarea);
     }
 }
