@@ -21,14 +21,19 @@ import java.util.List;
 public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapter.ViewHolder> {
 
     private Context context;
-    private List<Tarea> tareas;
+    private List<Tarea> tareasA;
+
     private LayoutInflater inf;
 
 
 
-    public HomeFragmentAdapter(Context context, List<Tarea> tareas, LayoutInflater inf) {
+    public HomeFragmentAdapter(Context context, List<String> tareas, LayoutInflater inf) {
+        for(int i=0 ; i<tareas.size();i++){
+            this.tareasA.add(new Tarea(tareas.get(i)));
+        }
+
         this.context = context;
-        this.tareas = tareas;
+
         this.inf = inf;
     }
 
@@ -41,8 +46,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.descripcion.setText(tareas.get(position).getDescripcion());
-        holder.titulo.setText(tareas.get(position).getTitulo());
+        holder.descripcion.setText(tareasA.get(position).getDescripcion());
+
 
 
 
@@ -50,7 +55,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     @Override
     public int getItemCount() {
-        return tareas.size();
+        return tareasA.size();
     }
 
 

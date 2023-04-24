@@ -6,18 +6,14 @@ public class Tarea {
     public String descripcion;
 
 
-    public Tarea(String titulo, String descripcion) {
-        this.titulo = titulo;
+    public Tarea(String descripcion) {
+
         this.descripcion = descripcion;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+
+
 
     public String getDescripcion() {
         return descripcion;

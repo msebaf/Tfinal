@@ -14,17 +14,29 @@ import java.util.ArrayList;
 
 public class HomeViewModel extends AndroidViewModel {
 
-    private ArrayList<Tarea> tareas = new ArrayList<>();
+
+
+
+
+    public static MutableLiveData<String> nuevaTarea;
 
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
 
-     tareas.add(new Tarea("tarea 1", "lalalalal"));
-     tareas.add(new Tarea("Tarea 2", "lolololo"));
+
     }
-    public ArrayList<Tarea> getPeliculas(){
-        return tareas;
+
+    public static void setTarea(String tarea){
+        nuevaTarea.setValue(tarea);
+    }
+    public LiveData<String> getTarea() {
+        if (nuevaTarea == null) {
+
+            this.nuevaTarea = new MutableLiveData<>();
+
+        }
+        return nuevaTarea;
     }
 
 }
