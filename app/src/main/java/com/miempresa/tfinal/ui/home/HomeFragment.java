@@ -1,12 +1,11 @@
 package com.miempresa.tfinal.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -40,6 +39,7 @@ public class HomeFragment extends Fragment {
         hvm.getTarea().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
+
                 tareas.add(s);
             }
         });
@@ -51,6 +51,17 @@ public class HomeFragment extends Fragment {
         HomeFragmentAdapter adapter = new HomeFragmentAdapter(requireContext(), tareas, getLayoutInflater());
         rv.setAdapter(adapter);
 
+
          return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        RecyclerView rv = binding.rvTareas;
+        HomeFragmentAdapter adapter = new HomeFragmentAdapter(requireContext(), tareas, getLayoutInflater());
+        rv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
     }
 }

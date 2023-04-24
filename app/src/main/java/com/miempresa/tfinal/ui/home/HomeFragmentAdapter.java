@@ -16,12 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.miempresa.tfinal.R;
 import com.miempresa.tfinal.ui.home.Modelo.Tarea;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapter.ViewHolder> {
 
     private Context context;
-    private List<Tarea> tareasA;
+    private List<Tarea> tareasA = new ArrayList<>();
 
     private LayoutInflater inf;
 
@@ -69,7 +70,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titulo, descripcion;
+        TextView  descripcion;
 
 
         public ViewHolder(@NonNull View itemView) {
